@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.github.orionlibs</groupId>
+    <artifactId>Orion-IoT-webapp-frontend</artifactId>
+    <version>0.0.1</version>
+    <name>Orion IoT WebApp Frontend</name>
+    <description>The front-end of the web application for the Orion-IoT project</description>
+    <url>https://github.com/orionlibs/Orion-IoT-webapp-frontend</url>
+    
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+
+    <scm>
+        <url>https://github.com/orionlibs/Orion-IoT-webapp-frontend</url>
+        <connection>scm:git:https://github.com/orionlibs/Orion-IoT-webapp-frontend.git</connection>
+        <developerConnection>scm:git:ssh://github.com/orionlibs/Orion-IoT-webapp-frontend.git</developerConnection>
+    </scm>
+
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+        </license>
+    </licenses>
+
+
+    <developers>
+        <developer>
+            <name>Dimitrios Efthymiou</name>
+            <email>efthymiou.dimitrios1@gmail.com</email>
+        </developer>
+    </developers>
+</project>
