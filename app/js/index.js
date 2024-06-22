@@ -37,5 +37,5 @@ $(document).ready(function ()
         alert('There has been a problem with your fetch operation:' + error);
     });*/
 
-    orionCommon.fetchComponentData('http://localhost:8080/api/v1/home/number-of-iot-devices', 'number-of-IoT-devices');
+    orionCommon.fetchComponentData('http://localhost:8080/api/v1/dashboard/number-of-iot-devices', 'number-of-IoT-devices');
 });

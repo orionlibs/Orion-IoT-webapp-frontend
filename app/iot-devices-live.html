@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+    <script>$(document).ready(function(){$('head').load('imports/common/header.html')})</script>
+</head>
+
+<body id="orion-iot" data-sa-theme="1">
+<main class="main">
+    <div id="page-loader"></div>
+    <script>$(document).ready(function(){$('#page-loader').load('imports/common/page-loader.html')})</script>
+
+    <header id="header" class="header"></header>
+    <script>$(document).ready(function(){$('#header').load('imports/common/navbar.html')})</script>
+
+    <aside id="sidebar" class="sidebar"></aside>
+    <script>$(document).ready(function(){$('#sidebar').load('imports/common/sidebar.html')})</script>
+
+    <div id="themes" class="themes"></div>
+    <script>$(document).ready(function(){$('#themes').load('imports/common/theme-selector.html')})</script>
+
+    <section class="content">
+        <header class="content__title">
+            <h1>IoT Devices</h1>
+        </header>
+
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Device Details</h4>
+                <h6 class="card-subtitle">This is a snapshot of data. You can see the <a href="iot-devices-live.html">LIVE table</a></h6>
+
+                <div class="table-responsive">
+                    <table id="data-table" class="table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="footer"></div>
+        <script>$(document).ready(function(){$('#footer').load('imports/common/footer.html')})</script>
+    </section>
+</main>
+
+
+<script src="vendors/bower_components/popper.js/dist/umd/popper.min.js"></script>
+<script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="vendors/bower_components/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+<script src="vendors/bower_components/jquery-scrollLock/jquery-scrollLock.min.js"></script>
+<script src="vendors/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="vendors/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="vendors/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="vendors/bower_components/jszip/dist/jszip.min.js"></script>
+<script src="vendors/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="js/app.min.js"></script>
+<script src="js/orion.js"></script>
+<script src="js/iot-devices.js"></script>
+</body>
+</html>
