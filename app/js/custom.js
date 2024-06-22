@@ -1,8 +1,9 @@
 'use strict';
 
+
 $(document).ready(function ()
 {
-    const dataToSend =
+    /*const dataToSend =
     {
         field1: 'Dimi'
     };
@@ -10,46 +11,14 @@ $(document).ready(function ()
 
     fetch('http://localhost:8080/api/v1/test-url',
     {
-        method: 'GET',
-        mode: "cors",//cors, no-cors, same-origin
-        cache: "no-cache",
-        credentials: "include",//include, same-origin, omit
-        headers:
-        {
-            'Content-Type': 'application/json',
-            'X-Xsrf-Token': getCookie('XSRF-TOKEN')
-        }
-    })
-    .then(response =>
-    {
-        if(!response.ok)
-        {
-            throw new Error('Network response was not ok ' + response.statusText);
-        }
-
-        return response.json();
-    })
-    .then(jsonResponse =>
-    {
-        alert(jsonResponse.field2);
-    })
-    .catch(error =>
-    {
-        alert('There has been a problem with your fetch operation:' + error);
-    });
-
-
-    fetch('http://localhost:8080/api/v1/test-url',
-    {
         method: 'POST',
-        mode: "cors",//cors, no-cors, same-origin
         cache: "no-cache",
+        mode: "cors",//cors, no-cors, same-origin
         credentials: "include",//include, same-origin, omit
         headers:
         {
             'Content-Type': 'application/json',
             'X-Xsrf-Token': getCookie('XSRF-TOKEN')
-            //'Authorization': 'Basic ' + encodeCredentials("user", "pass")
         },
         body: JSON.stringify(dataToSend)
     })
@@ -69,7 +38,10 @@ $(document).ready(function ()
     .catch(error =>
     {
         alert('There has been a problem with your fetch operation:' + error);
-    });
+    });*/
+
+    fetchComponentData('http://localhost:8080/api/v1/data1', 'component1');
+    fetchComponentData('http://localhost:8080/api/v1/data1', 'component2');
 });
 
 
@@ -83,9 +55,27 @@ function getCookie(name)
 }
 
 
-function encodeCredentials(username, password)
+function fetchComponentData(url, elementId)
 {
-      const combined = `${username}:${password}`;
-      const base64Encoded = btoa(combined);
-      return base64Encoded;
-    }
+    fetch(url)
+        .then(response => {
+            if(!response.ok)
+            {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+
+            return response.json();
+        })
+        .then(data => {
+            updateComponent(elementId, data);
+        })
+        .catch(error => {
+            document.getElementById(elementId).innerHTML = 'Failed to load data:' + error;
+        });
+}
+
+function updateComponent(elementId, data)
+{
+    const element = document.getElementById(elementId);
+    element.innerHTML = data.field2;
+}
