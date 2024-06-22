@@ -1,0 +1,8 @@
+to build the webapp:
+docker build -t orion-iot-webapp-frontend .
+docker run -dit --name orion-iot-webapp-frontend-running -p 8081:80 orion-iot-webapp-frontend
+
+
+to delete the stuff:
+docker rm -f orion-iot-webapp-frontend
+docker rmi orion-iot-webapp-frontend

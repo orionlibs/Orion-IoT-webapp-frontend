@@ -8,15 +8,16 @@ $(document).ready(function ()
     };
 
 
-    fetch('http://localhost:8080/home/test-url',
+    fetch('http://localhost:8080/api/v1/test-url',
     {
         method: 'POST',
-        mode: "cors",
+        mode: "cors",//cors, no-cors, same-origin
         cache: "no-cache",
-        credentials: "include",
+        credentials: "omit",//include, same-origin, omit
         headers:
         {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'X-Xsrf-Token': getCookie('XSRF-TOKEN')
         },
         body: JSON.stringify(dataToSend)
     })
@@ -31,10 +32,20 @@ $(document).ready(function ()
     })
     .then(jsonResponse =>
     {
-        alert(jsonResponse.field2 + "--" + jsonResponse.field1);
+        alert(jsonResponse.field1);
     })
     .catch(error =>
     {
-        alert('There has been a problem with your fetch operation:', error);
+        alert('There has been a problem with your fetch operation:' + error);
     });
 });
+
+
+function getCookie(name)
+{
+    const cookieValue = document.cookie
+        .split('; ')
+        .find(cookie => cookie.startsWith(name + '='))
+        ?.split('=')[1];
+    return cookieValue ? decodeURIComponent(cookieValue) : null;
+}
