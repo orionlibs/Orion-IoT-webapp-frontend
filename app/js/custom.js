@@ -40,8 +40,7 @@ $(document).ready(function ()
         alert('There has been a problem with your fetch operation:' + error);
     });*/
 
-    fetchComponentData('http://localhost:8080/api/v1/data1', 'component1');
-    fetchComponentData('http://localhost:8080/api/v1/data1', 'component2');
+    fetchComponentData('http://localhost:8080/api/v1/data1', 'number-of-IoT-devices');
 });
 
 
@@ -77,5 +76,5 @@ function fetchComponentData(url, elementId)
 function updateComponent(elementId, data)
 {
     const element = document.getElementById(elementId);
-    element.innerHTML = data.field2;
+    element.innerHTML = data.field1;
 }
