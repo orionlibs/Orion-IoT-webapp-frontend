@@ -28,30 +28,17 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Device Details</h4>
-                <h6 class="card-subtitle">This is a snapshot of data. You can see the <a href="iot-devices-live.html">LIVE table</a></h6>
+                <h6 class="card-subtitle">This is LIVE data. You can see the current <a href="iot-devices.html">snapshot table</a></h6>
 
                 <div class="table-responsive">
                     <table id="data-table" class="table">
                         <thead>
                         <tr>
+                            <th>Device ID</th>
                             <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                        </tr>
-                        </tbody>
+                        <tbody id="iot-device-live-details"></tbody>
                     </table>
                 </div>
             </div>
@@ -75,6 +62,9 @@
 <script src="vendors/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
 <script src="js/app.min.js"></script>
 <script src="js/orion.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.6.1/dist/sockjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0-beta2/bundles/stomp.umd.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>-->
 <script src="js/iot-devices-live.js"></script>
 </body>
 </html>
