@@ -13,7 +13,8 @@ var orionCommon =
     fetchComponentData : function(url, elementID)
     {
         fetch(url)
-        .then(response => {
+        .then(response =>
+        {
             if(!response.ok)
             {
                 throw new Error('Network response was not ok ' + response.statusText);
@@ -21,10 +22,12 @@ var orionCommon =
 
             return response.json();
         })
-        .then(data => {
+        .then(data =>
+        {
             orionCommon.updateComponent(elementID, data);
         })
-        .catch(error => {
+        .catch(error =>
+        {
             document.getElementById(elementID).innerHTML = 'Failed to load data:' + error;
         });
     },
