@@ -8,7 +8,7 @@ $(document).ready(function ()
     })
     .then(data =>
     {
-        var tableBodyHTML = "";
+        let tableBodyHTML = "";
 
         data.devices.forEach(item =>
         {

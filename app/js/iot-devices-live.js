@@ -1,57 +1,38 @@
 $(function () {
-    let stompClient;
+    let socket = new SockJS('http://localhost:8080/websocket');
+    let stompClient = Stomp.over(socket);
+    stompClient.heartbeat.outgoing = 0;
+    stompClient.heartbeat.incoming = 0;
+    stompClient.reconnect_delay = 5000;
 
-    const stompConfig =
+    stompClient.connect({}, function(frame)
     {
-      // Typically, login, passcode and vhost
-      // Adjust these for your broker
-      /*connectHeaders: {
-        login: "guest",
-        passcode: "guest"
-      },*/
-
-      // Broker URL, should start with ws:// or wss:// - adjust for your broker setup
-      brokerURL: "ws://localhost:8080/websocket",
-      reconnectDelay: 500,
-
-      // Subscriptions should be done inside onConnect as those need to reinstated when the broker reconnects
-      onConnect: function(frame)
-      {
-        // The return object has a method called unsubscribe
-        const subscription = stompClient.subscribe('/app/chat/topic/iot-devices-live/summaries', function(message)
+        console.log('Connected: ' + frame);
+        stompClient.subscribe('/topic/iot-devices-live/summaries', function(message)
         {
-          const payload = JSON.parse(message.body);
-          displayIncomingMessage(payload.devices);
+            if(message.body)
+            {
+                let messageBody = JSON.parse(message.body);
+                let tableBodyHTML = "";
+
+                messageBody.devices.forEach(item =>
+                {
+                  tableBodyHTML += '<tr>';
+                  tableBodyHTML += '<td>' + item.deviceID + '</td>';
+                  tableBodyHTML += '<td>' + item.deviceName + '</td>';
+                  tableBodyHTML += '</tr>';
+                });
+
+                $('#iot-device-live-details').html(tableBodyHTML);
+            }
         });
-      }
+    });
+
+    window.onbeforeunload = function()
+    {
+        if(stompClient)
+        {
+            stompClient.disconnect();
+        }
     };
-
-    stompClient = new StompJs.Client(stompConfig);
-    stompClient.activate();
-
-    setTimeout(function()
-    {
-       publishMessage("hello", "world");
-    }, 1000);
-
-    function publishMessage(from, message)
-    {
-      if(!stompClient.connected)
-      {
-        alert("Broker disconnected, can't send message.");
-        return false;
-      }
-
-      if(message.length > 0)
-      {
-        const payLoad = {from: from, message: message};
-        stompClient.publish({destination: '/app/chat/topic/iot-devices-live/summaries', body: JSON.stringify(payLoad)});
-      }
-      return true;
-    }
-
-    function displayIncomingMessage(from, message)
-    {
-      alert(from + " -------- " + message);
-    }
   })
