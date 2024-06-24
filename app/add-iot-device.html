@@ -21,27 +21,37 @@
 
     <section class="content">
         <header class="content__title">
-            <h1>IoT Devices</h1>
+            <h1>Add IoT Devices</h1>
         </header>
 
 
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Device Details</h4>
-                <h6 class="card-subtitle">This is LIVE data. You can see the current <a href="iot-devices.html">snapshot table</a></h6>
+                <h3 class="card-body__title">Device Details</h3>
+                <br>
 
-                <div class="table-responsive">
-                    <table id="data-table" class="table">
-                        <thead>
-                        <tr>
-                            <th>Device ID</th>
-                            <th>Name</th>
-                            <th>Connection URL</th>
-                        </tr>
-                        </thead>
-                        <tbody id="iot-device-live-details"></tbody>
-                    </table>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <div class="form-group">
+                                <input id="input-device-name" type="text" class="form-control" placeholder="Device Name">
+                                <i class="form-group__bar"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <div class="form-group">
+                                <input id="input-connection-url" type="text" class="form-control" placeholder="Connection URL">
+                                <i class="form-group__bar"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <br><br>
+                <button id="save-iot-device-button" type="button" class="btn btn-primary">Add</button>
             </div>
         </div>
 
@@ -63,8 +73,6 @@
 <script src="vendors/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
 <script src="js/app.min.js"></script>
 <script src="js/orion.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.6.1/dist/sockjs.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
-<script src="js/iot-devices-live.js"></script>
+<script src="js/add-iot-device.js"></script>
 </body>
 </html>

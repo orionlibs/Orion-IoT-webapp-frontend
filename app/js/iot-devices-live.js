@@ -20,6 +20,7 @@ $(function () {
                   tableBodyHTML += '<tr>';
                   tableBodyHTML += '<td>' + item.deviceID + '</td>';
                   tableBodyHTML += '<td>' + item.deviceName + '</td>';
+                  tableBodyHTML += '<td>' + item.connectionURL + '</td>';
                   tableBodyHTML += '</tr>';
                 });
 

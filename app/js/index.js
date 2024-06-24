@@ -15,7 +15,7 @@ $(document).ready(function ()
         headers:
         {
             'Content-Type': 'application/json',
-            'X-Xsrf-Token': getCookie('XSRF-TOKEN')
+            'X-Xsrf-Token': orionCommon.getCookie('XSRF-TOKEN')
         },
         body: JSON.stringify(dataToSend)
     })
