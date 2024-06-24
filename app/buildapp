@@ -1,0 +1,5 @@
+#!/bin/bash
+docker rm -f orion-iot-webapp-frontend-running
+docker rmi orion-iot-webapp-frontend
+docker build -t orion-iot-webapp-frontend .
+docker run -dit --name orion-iot-webapp-frontend-running -p 8081:80 orion-iot-webapp-frontend
