@@ -29,6 +29,7 @@ $(document).ready(function ()
             tableBodyHTML += '<td>' + item.deviceID + '</td>';
             tableBodyHTML += '<td>' + item.deviceName + '</td>';
             tableBodyHTML += '<td>' + item.connectionURL + '</td>';
+            tableBodyHTML += '<td>' + item.payloads + '</td>';
             tableBodyHTML += '<td><button id="edit-iot-device-' + item.deviceID + '" class="btn btn-info btn--icon-text"><i class="zmdi zmdi-edit"></i> Edit</button></td>';
             tableBodyHTML += '</tr>';
         });
