@@ -1,5 +1,212 @@
 var orionCommon =
 {
+    makeGetAJAXCall : function(url, callbackSuccessFunction, callbackFailFunction)
+    {
+        fetch(url,
+        {
+            method: 'GET',
+            cache: "no-cache",
+            mode: "cors",//cors, no-cors, same-origin
+            credentials: "include",//include, same-origin, omit
+            headers:
+            {
+                'Content-Type': 'application/json',
+                'X-Xsrf-Token': orionCommon.getCookie('XSRF-TOKEN')
+            }
+        })
+        .then(response =>
+        {
+            if(!response.ok)
+            {
+                if(callbackFailFunction)
+                {
+                    callbackFailFunction(response);
+                }
+                else
+                {
+                    throw new Error('Error ' + response.statusText);
+                }
+            }
+
+            return response.json();
+        })
+        .then(jsonResponse =>
+        {
+            if(callbackSuccessFunction)
+            {
+                callbackSuccessFunction(jsonResponse);
+            }
+        })
+        .catch(error =>
+        {
+            if(callbackFailFunction)
+            {
+                callbackFailFunction(error);
+            }
+            else
+            {
+                alert('There has been a problem with your fetch operation:' + error);
+            }
+        });
+    },
+
+
+    makePostAJAXCall : function(url, dataToSend, callbackSuccessFunction, callbackFailFunction)
+    {
+        fetch(url,
+        {
+            method: 'POST',
+            cache: "no-cache",
+            mode: "cors",//cors, no-cors, same-origin
+            credentials: "include",//include, same-origin, omit
+            headers:
+            {
+                'Content-Type': 'application/json',
+                'X-Xsrf-Token': orionCommon.getCookie('XSRF-TOKEN')
+            },
+            body: JSON.stringify(dataToSend)
+        })
+        .then(response =>
+        {
+            if(!response.ok)
+            {
+                if(callbackFailFunction)
+                {
+                    callbackFailFunction(response);
+                }
+                else
+                {
+                    throw new Error('Error ' + response.statusText);
+                }
+            }
+
+            return response.json();
+        })
+        .then(jsonResponse =>
+        {
+            if(callbackSuccessFunction)
+            {
+                callbackSuccessFunction(jsonResponse);
+            }
+        })
+        .catch(error =>
+        {
+            if(callbackFailFunction)
+            {
+                callbackFailFunction(error);
+            }
+            else
+            {
+                alert('There has been a problem with your fetch operation:' + error);
+            }
+        });
+    },
+
+
+    makePutAJAXCall : function(url, dataToSend, callbackSuccessFunction, callbackFailFunction)
+    {
+        fetch(url,
+        {
+            method: 'PUT',
+            cache: "no-cache",
+            mode: "cors",//cors, no-cors, same-origin
+            credentials: "include",//include, same-origin, omit
+            headers:
+            {
+                'Content-Type': 'application/json',
+                'X-Xsrf-Token': orionCommon.getCookie('XSRF-TOKEN')
+            },
+            body: JSON.stringify(dataToSend)
+        })
+        .then(response =>
+        {
+            if(!response.ok)
+            {
+                if(callbackFailFunction)
+                {
+                    callbackFailFunction(response);
+                }
+                else
+                {
+                    throw new Error('Error ' + response.statusText);
+                }
+            }
+
+            return response.json();
+        })
+        .then(jsonResponse =>
+        {
+            if(callbackSuccessFunction)
+            {
+                callbackSuccessFunction(jsonResponse);
+            }
+        })
+        .catch(error =>
+        {
+            if(callbackFailFunction)
+            {
+                callbackFailFunction(error);
+            }
+            else
+            {
+                alert('There has been a problem with your fetch operation:' + error);
+            }
+        });
+    },
+
+
+    makeDeleteAJAXCall : function(url, dataToSend, callbackSuccessFunction, callbackFailFunction)
+    {
+        fetch(url,
+        {
+            method: 'DELETE',
+            cache: "no-cache",
+            mode: "cors",//cors, no-cors, same-origin
+            credentials: "include",//include, same-origin, omit
+            headers:
+            {
+                'Content-Type': 'application/json',
+                'X-Xsrf-Token': orionCommon.getCookie('XSRF-TOKEN')
+            },
+            body: JSON.stringify(dataToSend)
+        })
+        .then(response =>
+        {
+            if(!response.ok)
+            {
+                if(callbackFailFunction)
+                {
+                    callbackFailFunction(response);
+                }
+                else
+                {
+                    throw new Error('Error ' + response.statusText);
+                }
+            }
+
+            return response.json();
+        })
+        .then(jsonResponse =>
+        {
+            if(callbackSuccessFunction)
+            {
+                callbackSuccessFunction(jsonResponse);
+            }
+        })
+        .catch(error =>
+        {
+            if(callbackFailFunction)
+            {
+                callbackFailFunction(error);
+            }
+            else
+            {
+                alert('There has been a problem with your fetch operation:' + error);
+            }
+        });
+    },
+
+
     getCookie : function(name)
     {
         const cookieValue = document.cookie

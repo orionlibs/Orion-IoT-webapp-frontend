@@ -37,10 +37,47 @@
                             <th>Device ID</th>
                             <th>Name</th>
                             <th>Connection URL</th>
+                            <th>Edit</th>
                         </tr>
                         </thead>
                         <tbody id="iot-device-details"></tbody>
                     </table>
+                </div>
+
+
+                <div id="iot-device-editor-modal" class="modal fade" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title pull-left">Edit IoT Device</h5>
+                            </div>
+                            <div class="modal-body">
+                                <input id="input-iot-device-id" type="hidden" value=""/>
+
+
+                                <div class="input-group">
+                                    <div class="form-group">
+                                        <input id="input-device-name" type="text" class="form-control" placeholder="Device Name">
+                                        <i class="form-group__bar"></i>
+                                    </div>
+                                </div>
+
+
+                                <div class="input-group">
+                                    <div class="form-group">
+                                        <input id="input-connection-url" type="text" class="form-control" placeholder="Connection URL">
+                                        <i class="form-group__bar"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="modal-footer">
+                                <button id="update-iot-device-details-button" type="button" class="btn btn-link">Update</button>
+                                <button id="cancel-update-iot-device-details-button" type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
