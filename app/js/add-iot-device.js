@@ -8,7 +8,7 @@ $(document).ready(function ()
             connectionURL: $("#input-connection-url").val()
         };
 
-        orionCommon.makePostAJAXCall('http://localhost:8080/api/v1/iot-devices', dataToSend, addIoTDevices.processSuccessfulIoTDeviceAddition);
+        orionCommon.makePostAJAXCall('http://localhost:8080/wapi/v1/iot-devices', dataToSend, addIoTDevices.processSuccessfulIoTDeviceAddition);
     });
 });
 

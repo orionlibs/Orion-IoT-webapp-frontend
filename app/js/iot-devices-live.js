@@ -9,7 +9,7 @@ $(function ()
             connectionURL: $("#input-connection-url").val()
         };
 
-        orionCommon.makePutAJAXCall('http://localhost:8080/api/v1/iot-devices', dataToSend, IoTDevicesLive.processSuccessfulIoTDeviceDetailsUpdate);
+        orionCommon.makePutAJAXCall('http://localhost:8080/wapi/v1/iot-devices', dataToSend, IoTDevicesLive.processSuccessfulIoTDeviceDetailsUpdate);
     });
 
     let socket = new SockJS('http://localhost:8080/websocket');

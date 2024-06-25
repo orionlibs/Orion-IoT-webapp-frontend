@@ -9,11 +9,11 @@ $(document).ready(function ()
             connectionURL: $("#input-connection-url").val()
         };
 
-        orionCommon.makePutAJAXCall('http://localhost:8080/api/v1/iot-devices', dataToSend, IoTDevices.processSuccessfulIoTDeviceDetailsUpdate);
+        orionCommon.makePutAJAXCall('http://localhost:8080/wapi/v1/iot-devices', dataToSend, IoTDevices.processSuccessfulIoTDeviceDetailsUpdate);
     });
 
 
-    fetch('http://localhost:8080/api/v1/iot-devices/summaries')
+    fetch('http://localhost:8080/wapi/v1/iot-devices/summaries')
     .then(response =>
     {
         if(!response.ok){throw new Error('Network response was not ok ' + response.statusText);}
