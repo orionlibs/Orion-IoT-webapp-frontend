@@ -34,11 +34,11 @@
                     <table id="data-table" class="table">
                         <thead>
                         <tr>
-                            <th>Device ID</th>
                             <th>Name</th>
                             <th>Connection URL</th>
                             <th>Payloads</th>
                             <th>Edit</th>
+                            <th>Latest Payloads</th>
                         </tr>
                         </thead>
                         <tbody id="iot-device-live-details"></tbody>
@@ -76,6 +76,34 @@
                             <div class="modal-footer">
                                 <button id="update-iot-device-details-button" type="button" class="btn btn-link">Update</button>
                                 <button id="cancel-update-iot-device-details-button" type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="iot-device-latest-payloads-modal" class="modal fade" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title pull-left">Latest Payloads</h5>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Payload</th>
+                                        <th>Topic</th>
+                                        <th>Timestamp</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="latest-iot-device-payloads"></tbody>
+                                </table>
+                            </div>
+
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
